@@ -7,15 +7,15 @@
 			<textarea class="form-control" v-model="disc" placeholder="Описание"></textarea>
 		</div>
 		<div class="form-check green">
-			<input class="form-check-input" type="radio" name="importance" :id="`importance1-${type}`" value="2" v-model="status">
+			<input class="form-check-input" type="radio" name="importance" :id="`importance1-${type}`" value="2" v-model="important">
 			<label class="form-check-label" :for="`importance1-${type}`">Не важно</label>
 		</div>
 		<div class="form-check yellow">
-			<input class="form-check-input" type="radio" name="importance" :id="`importance2-${type}`" value="1" v-model="status">
+			<input class="form-check-input" type="radio" name="importance" :id="`importance2-${type}`" value="1" v-model="important">
 			<label class="form-check-label" :for="`importance2-${type}`">Срочно</label>
 		</div>
 		<div class="form-check red">
-			<input class="form-check-input" type="radio" name="importance" :id="`importance3-${type}`" value="0" v-model="status">
+			<input class="form-check-input" type="radio" name="importance" :id="`importance3-${type}`" value="0" v-model="important">
 			<label class="form-check-label" :for="`importance3-${type}`">Оч. срочно</label>
 		</div>
 		<div class="form-group mt-2">
@@ -49,7 +49,7 @@ export default {
 			id: Number((new Date).getTime()),
 			name: null,
 			disc: null,
-			status: 2
+			important: 2
 		}
 	},
 	methods: {
@@ -62,7 +62,7 @@ export default {
 				id: Number(this.id),
 				name: this.name,
 				disc: this.disc,
-				important: Number(this.status),
+				important: Number(this.important),
 				type: this.setType,
 				isEdit: this.type === 'edit' ? true : false
 			}
@@ -74,7 +74,7 @@ export default {
 			this.id = Number((new Date).getTime())
 			this.name = null
 			this.disc = null
-			this.status = 2
+			this.important = 2
 		}
 	},
 	watch: {
@@ -82,7 +82,7 @@ export default {
 			this.id = val.id
 			this.name = val.name
 			this.disc = val.disc
-			this.status = val.important
+			this.important = val.important
 		}
 	}
 }

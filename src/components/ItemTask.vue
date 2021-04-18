@@ -36,6 +36,7 @@ export default {
 	methods: {
 		changeStatusTask () {
 			this.item.type = this.item.type === 'complete' ? 'current' : 'complete'
+			this.item.isEdit = true
 			this.$store.dispatch(`setTask`, this.item)
 		},
 		removeTask () {

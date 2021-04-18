@@ -48,6 +48,8 @@ export default new Vuex.Store({
 		}
 	},
 	getters: {
-		tasks: s => s.tasks
+		tasks: s => s.tasks,
+		currentTasks: s => s.tasks.filter(task => task.type === 'current'),
+		completeTasks: s => s.tasks.filter(task => task.type === 'complete')
 	}
 })

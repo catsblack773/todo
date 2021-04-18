@@ -20,7 +20,7 @@ import ItemTask from './ItemTask'
 export default {
     computed: {
 		items () {
-			return this.$store.getters.tasks ? this.$store.getters.tasks.filter(task => task.type === 'complete') : []
+			return this.$store.getters.completeTasks ?? []
 		}
 	},
 	components: {
