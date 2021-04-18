@@ -63,21 +63,18 @@ export default {
 				name: this.name,
 				disc: this.disc,
 				important: Number(this.status),
+				type: this.setType,
 				isEdit: this.type === 'edit' ? true : false
 			}
 
 			if (this.type === 'edit') {
 				this.$emit('closeEditForm')
 			}
-			this.$store.dispatch(`set${this.capitalizeFirstLetter(this.setType)}Tasks`, task)
+			this.$store.dispatch(`setTask`, task)
 			this.id = Number((new Date).getTime())
 			this.name = null
 			this.disc = null
 			this.status = 2
-		},
-		capitalizeFirstLetter (string) {
-			string = string.toLowerCase()
-			return string.charAt(0).toUpperCase() + string.slice(1)
 		}
 	},
 	watch: {

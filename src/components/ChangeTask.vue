@@ -32,7 +32,7 @@ export default {
 	},
 	methods: {
 		reload () {
-			const items = this.$store.getters[`${this.type.toLowerCase()}Tasks`]
+			const items = this.$store.getters.tasks
 			const item = items.filter(task => task.id === this.id)
 			if (item[0]) {
 				this.item = item[0]

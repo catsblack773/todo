@@ -35,18 +35,14 @@ export default {
 	},
 	methods: {
 		changeStatusTask () {
-			this.$store.dispatch(`remove${this.capitalizeFirstLetter(this.type)}Tasks`, this.item.id)
-			this.$store.dispatch(`set${this.capitalizeFirstLetter(this.type === 'current' ? 'complete' : 'current')}Tasks`, this.item)
+			this.item.type = this.item.type === 'complete' ? 'current' : 'complete'
+			this.$store.dispatch(`setTask`, this.item)
 		},
 		removeTask () {
-			this.$store.dispatch(`remove${this.capitalizeFirstLetter(this.type)}Tasks`, this.item.id)
+			this.$store.dispatch(`removeTask`, this.item.id)
 		},
 		editTask () {
 			this.$emit('editTask', this.item.id)
-		},
-		capitalizeFirstLetter (string) {
-			string = string.toLowerCase()
-			return string.charAt(0).toUpperCase() + string.slice(1)
 		}
 	}
 }
